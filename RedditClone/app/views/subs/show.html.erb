@@ -1,0 +1,23 @@
+<%= @sub.title %>
+<br>
+<%= @sub.description %>
+<br>
+<%= @sub.moderator.username %>
+<br>
+<%= link_to "Edit", edit_sub_url(@sub) %>
+<%= button_to "Delete", sub_url(@sub), method: :delete %>
+<br>
+<br>
+
+<%= link_to "View All Subs", subs_url %>
+
+<h1>All Posts For This Sub</h1>
+<% @sub.posts.each do |post| %>
+<%= post.title %> <br>
+<%= link_to "View Post", sub_post_url(post.sub_id, post.id) %>
+<%= link_to "Edit Post", edit_sub_post_url(post.sub_id, post.id) %>
+<br>
+<br>
+<% end %>
+
+<%= link_to "Create New Post", new_sub_post_url(@sub.id) %>

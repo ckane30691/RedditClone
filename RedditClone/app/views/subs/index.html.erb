@@ -1,0 +1,13 @@
+<% @subs.each do |sub_reddit| %>
+<%= sub_reddit.title %>
+<br>
+<%= sub_reddit.description %>
+<br>
+<%= link_to "View", sub_url(sub_reddit) %>
+<%= link_to "Edit", edit_sub_url(sub_reddit) %>
+<%= button_to "Delete", sub_url(sub_reddit), method: :delete %>
+<br>
+<br>
+<% end %>
+
+<%= link_to "View All Subs", subs_url %>

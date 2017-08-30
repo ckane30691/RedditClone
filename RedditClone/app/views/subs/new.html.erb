@@ -1,0 +1,17 @@
+<h1>Create a sub</h1>
+
+<form action="<%= subs_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="Title">Title</label>
+  <input id="Title" type="text" name="sub[title]" value="<%= @sub.title if @sub %>">
+
+  <label for="Description">Description</label>
+  <textarea id="Description" name="sub[description]">
+    <%= @sub.description if @sub %>
+  </textarea>
+
+  <input type="submit" value="Create!">
+</form>
+
+<%= link_to "View All Subs", subs_url %>

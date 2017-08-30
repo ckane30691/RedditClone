@@ -1,0 +1,6 @@
+<%= @post.title %>
+<%= @post.content %>
+<%= @post.author.username %>
+<%= link_to "Edit Post", edit_sub_post_url(@post) %>
+
+<%= link_to "View All Subs", subs_url %>

@@ -1,0 +1,22 @@
+<h1>Make a post</h1>
+
+<form action="<%= sub_posts_url(@post.sub_id) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="Title">Title</label>
+  <input id="Title" type="text" name="post[title]" value="<%= @post.title if @post %>">
+
+  <br>
+  <label for="URL">URL</label>
+  <input id="URL" type="text" name="post[url]" value="<%= @post.url if @post %>">
+  <br>
+
+  <label for="Content">Content</label>
+  <textarea id="Content" name="post[content]">
+    <%= @post.content if @post %>
+  </textarea>
+
+  <input type="submit" value="Create Post!">
+</form>
+
+<%= link_to "View All Subs", subs_url %>

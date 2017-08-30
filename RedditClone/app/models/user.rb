@@ -9,6 +9,11 @@ class User < ApplicationRecord
   foreign_key: :moderator_id,
   class_name: :Sub
 
+  has_many :posts,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: :Post
+
   attr_reader :password
 
   def password=(pw)
@@ -33,7 +38,7 @@ class User < ApplicationRecord
   def self.find_by_credentials(username , pw)
     user = User.find_by(username: username)
     return nil unless username
-    user.is_password?(pw)
+    user.is_password?(pw) ? user : nil
   end
 
 end

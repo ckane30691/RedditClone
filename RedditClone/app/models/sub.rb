@@ -1,6 +1,8 @@
 class Sub < ApplicationRecord
 
-  validates :moderator, :title, :description, presence: true
+  validates :title, :description, presence: true
+
+  has_many :posts
 
   belongs_to :moderator,
   primary_key: :id,
